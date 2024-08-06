@@ -7,7 +7,9 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
   public class WheelItem
   {
     public GameObject ItemPrefab;
+    public bool ShowSprite;
     public Sprite Sprite;
+    public bool ShowValue;
     public string Value;
   }
 }
