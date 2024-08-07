@@ -1,12 +1,16 @@
-using __Game.Resources.Scripts.EventBus;
+﻿using __Game.Resources.Scripts.EventBus;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
 
 namespace Assets.__Game.Resources.Scripts._GameStuff
 {
-  public class WheelItemHandler : MonoBehaviour, IPointerClickHandler
+  public class WheelItemHandler : MonoBehaviour, IPointerDownHandler
   {
+    public event Action<string> Clicked;
+
     [Header("References")]
     [SerializeField] private SpriteRenderer _borderRenderer;
     [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -19,6 +23,9 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     [SerializeField] private Color _colorD;
     [SerializeField] private Color _colorE;
 
+    [Header("Tutorial")]
+    [SerializeField] private GameObject _tutorialFinger;
+
     private Color[] _colors;
 
     private void Awake() {
@@ -29,12 +36,26 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
       SetRandomColor();
     }
 
-    public void SetItem(bool showSprite, Sprite sprite, bool showValue, string value) {
-      if (sprite != null || showSprite == false)
+    public void SetItem(bool showSprite, Sprite sprite, bool showValue, string value, bool tutorial) {
+      _valueText.gameObject.SetActive(false);
+      _tutorialFinger.SetActive(false);
+
+      if (sprite != null) {
         _spriteRenderer.sprite = sprite;
 
-      if (showValue == false)
+        if (showSprite == true)
+          _spriteRenderer.gameObject.SetActive(true);
+        else
+          _spriteRenderer.gameObject.SetActive(false);
+      }
+      else
+        _spriteRenderer.gameObject.SetActive(false);
+
+      if (value != "" || value != " ")
         _valueText.text = value;
+
+      _valueText.gameObject.SetActive(showValue);
+      _tutorialFinger.SetActive(tutorial);
     }
 
     private void SetRandomColor() {
@@ -43,10 +64,10 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
       _borderRenderer.color = _colors[randomIndex];
     }
 
-    public void OnPointerClick(PointerEventData eventData) {
-      EventBus<EventStructs.VariantClickedEvent>.Raise(new EventStructs.VariantClickedEvent {
-        VariantValue = _valueText.text
-      });
+    public void OnPointerDown(PointerEventData eventData) {
+      Clicked?.Invoke(_valueText.text);
+
+      Debug.Log(_valueText.text);
     }
   }
 }

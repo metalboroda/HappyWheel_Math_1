@@ -1,6 +1,6 @@
-﻿using __Game.Resources.Scripts.EventBus;
-using Assets.__Game.Resources.Scripts.Game.States;
+﻿using Assets.__Game.Resources.Scripts.Game.States;
 using Assets.__Game.Scripts.Infrastructure;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,6 +10,9 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
 {
   public class WheelHandler : MonoBehaviour
   {
+    public event Action WheelCompleted;
+    public event Action<bool> WheelCompletedBool;
+
     [Header("Central Item")]
     [SerializeField] private bool _showCentralSprite;
     [SerializeField] private Sprite _centralSprite;
@@ -35,12 +38,12 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     [Header("")]
     [SerializeField] private List<WheelItem> _wheelItems = new();
 
+    public bool Completed { get; private set; } = false;
+
     private List<GameObject> _spawnedObjects = new();
 
     private GameBootstrapper _gameBootstrapper;
     private Camera _mainCamera;
-
-    private EventBinding<EventStructs.VariantClickedEvent> _variantClickedEvent;
 
     private void Awake() {
       _gameBootstrapper = GameBootstrapper.Instance;
@@ -49,12 +52,10 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
       ShuffleWheelItems();
     }
 
-    private void OnEnable() {
-      _variantClickedEvent = new EventBinding<EventStructs.VariantClickedEvent>(OnVariantClickedEvent);
-    }
-
     private void OnDisable() {
-      _variantClickedEvent.Remove(OnVariantClickedEvent);
+      foreach (var spawnedObject in _spawnedObjects) {
+        spawnedObject.GetComponent<WheelItemHandler>().Clicked -= OnVariantClickedEvent;
+      }
     }
 
     private void Start() {
@@ -80,7 +81,11 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
         WheelItemHandler wheelItemHandler = spawnedObject.GetComponent<WheelItemHandler>();
 
         if (wheelItemHandler != null)
-          wheelItemHandler.SetItem(wheelItem.ShowSprite, wheelItem.Sprite, wheelItem.ShowValue, wheelItem.Value);
+          wheelItemHandler.SetItem(wheelItem.ShowSprite, wheelItem.Sprite, wheelItem.ShowValue, wheelItem.Value, wheelItem.Tutorial);
+      }
+
+      foreach (var spawnedObject in _spawnedObjects) {
+        spawnedObject.GetComponent<WheelItemHandler>().Clicked += OnVariantClickedEvent;
       }
     }
 
@@ -163,20 +168,29 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     }
 
     private void SetCentral() {
-      if (_centralSprite != null || _showCentralSprite == true) {
+      if (_showCentralSprite && _centralSprite != null) {
         _centralImage.sprite = _centralSprite;
       }
 
-      if (_showCentralValue == true) {
+      if (_showCentralValue) {
         _centralValueText.text = _centralValue;
       }
     }
 
-    private void OnVariantClickedEvent(EventStructs.VariantClickedEvent variantClickedEvent) {
-      if (variantClickedEvent.VariantValue == _centralValue)
-        _gameBootstrapper.StateMachine.ChangeState(new GameWinState(_gameBootstrapper));
-      else
-        _gameBootstrapper.StateMachine.ChangeState(new GameLoseState(_gameBootstrapper));
+    private void OnVariantClickedEvent(string value) {
+      if (value == _centralValue) {
+        Completed = true;
+
+        WheelCompleted?.Invoke();
+      }
+      else {
+        Completed = false;
+
+        if (_gameBootstrapper != null)
+          _gameBootstrapper.StateMachine.ChangeState(new GameLoseState(_gameBootstrapper));
+      }
+
+      WheelCompletedBool?.Invoke(Completed);
     }
   }
 }
