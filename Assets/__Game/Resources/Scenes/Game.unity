@@ -2538,8 +2538,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0410\u0422\u0418\u0421\u041D\u0418 \u041D\u0410 \u041F\u0420\u0410\u0412\u0418\u041B\u042C\u041D\u0423
-    \u041C\u0410\u0428\u0418\u041D\u041A\u0423"
+  m_text: "\u041D\u0410\u0422\u0418\u0421\u041D\u0418 \u041D\u0410 \u0422\u0415,
+    \u0429\u041E \u041D\u0410\u0417\u0412\u0410\u0412 \u0414\u0418\u041A\u0422\u041E\u0420"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c8d9743c67ed70c48b1ffc142f8e6e13, type: 2}
   m_sharedMaterial: {fileID: 1802962409221402600, guid: c8d9743c67ed70c48b1ffc142f8e6e13, type: 2}
@@ -3363,8 +3363,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0410\u0422\u0418\u0421\u041D\u0418 \u041D\u0410 \u041F\u0420\u0410\u0412\u0418\u041B\u042C\u041D\u0423
-    \u041C\u0410\u0428\u0418\u041D\u041A\u0423"
+  m_text: "\u041D\u0410\u0422\u0418\u0421\u041D\u0418 \u041D\u0410 \u0422\u0415,
+    \u0429\u041E \u041D\u0410\u0417\u0412\u0410\u0412 \u0414\u0418\u041A\u0422\u041E\u0420"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c8d9743c67ed70c48b1ffc142f8e6e13, type: 2}
   m_sharedMaterial: {fileID: 1802962409221402600, guid: c8d9743c67ed70c48b1ffc142f8e6e13, type: 2}
