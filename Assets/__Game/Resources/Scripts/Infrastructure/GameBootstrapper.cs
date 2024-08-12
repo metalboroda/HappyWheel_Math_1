@@ -39,7 +39,7 @@ namespace Assets.__Game.Scripts.Infrastructure
     private void Start() {
       SceneLoader.LoadSceneAsyncWithDelay(Hashes.GameScene, 2f, this, () => {
         if (QuestStateOnce == false) {
-          StateMachine.Init(new GameQuestState(this));
+          StateMachine.Init(new GameplayState(this));
         } 
         else {
           StateMachine.ChangeState(new GameplayState(this));

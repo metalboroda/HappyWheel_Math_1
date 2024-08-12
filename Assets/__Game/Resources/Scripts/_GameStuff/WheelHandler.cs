@@ -18,6 +18,7 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
     [SerializeField] private Sprite _centralSprite;
     [SerializeField] private bool _showCentralValue;
     [SerializeField] private string _centralValue;
+    [SerializeField] private string _centralValueName;
 
     [Header("Settings")]
     [SerializeField] private float _radius = 5f;
@@ -173,7 +174,7 @@ namespace Assets.__Game.Resources.Scripts._GameStuff
       }
 
       if (_showCentralValue) {
-        _centralValueText.text = _centralValue;
+        _centralValueText.text = _centralValueName;
       }
     }
 

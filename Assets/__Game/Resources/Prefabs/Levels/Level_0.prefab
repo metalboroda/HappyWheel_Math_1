@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4563015126840926506}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8522182638671477160
 MonoBehaviour:
@@ -74,9 +74,13 @@ PrefabInstance:
       propertyPath: _centralValue
       value: "\u041A\u0443\u043B\u044C\u043A\u0430"
       objectReference: {fileID: 0}
+    - target: {fileID: 6040104719498767661, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
+      propertyPath: _centralValueName
+      value: "\u041A\u0423\u041B\u042C\u041A\u0410"
+      objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_LocalPosition.x
@@ -154,9 +158,13 @@ PrefabInstance:
       propertyPath: _centralValue
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6040104719498767661, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
+      propertyPath: _centralValueName
+      value: ONE
+      objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_LocalPosition.x
@@ -234,9 +242,13 @@ PrefabInstance:
       propertyPath: _centralValue
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6040104719498767661, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
+      propertyPath: _centralValueName
+      value: "\u0414\u0412\u0410"
+      objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_LocalPosition.x
@@ -315,12 +327,16 @@ PrefabInstance:
       value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767661, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
+      propertyPath: _centralValueName
+      value: BALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040104719498767661, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: _wheelItems.Array.data[5].Value
       value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_LocalPosition.x
@@ -398,9 +414,13 @@ PrefabInstance:
       propertyPath: _centralValue
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6040104719498767661, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
+      propertyPath: _centralValueName
+      value: TWO
+      objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_LocalPosition.x
@@ -545,12 +565,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767661, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
+      propertyPath: _centralValueName
+      value: "\u041E\u0414\u0418\u041D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040104719498767661, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: _wheelItems.Array.data[0].Tutorial
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6040104719498767662, guid: e01fadf58f3564e43a9b0f8e8666d923, type: 3}
       propertyPath: m_LocalPosition.x
